@@ -18,10 +18,11 @@ public class Calculator implements Supplier {
 
     // Ошибка была в devide, она возникала из-за того, что Y при делении был равен 0.
     BinaryOperator<Integer> devide = (x, y) -> {
-        if (y == 0) {
-            throw new ArithmeticException("На 0 делить нельзя!");
-        }else {
+        try {
             return x / y;
+        }catch (ArithmeticException e) {
+            System.out.println("Ошибка! На ноль делить нельзя! Мин. число : ");
+            return 1;
         }
     };
 
