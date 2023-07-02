@@ -1,4 +1,4 @@
-package calculatir;
+package calculatir.src;
 
 import java.util.function.*;
 
@@ -18,12 +18,10 @@ public class Calculator implements Supplier {
 
     // Ошибка была в devide, она возникала из-за того, что Y при делении был равен 0.
     BinaryOperator<Integer> devide = (x, y) -> {
-        try {
-            return x / y;
-        }catch (ArithmeticException e) {
-            System.out.println("Ошибка! На ноль делить нельзя! Мин. число : ");
-            return 1;
+        if(y == 0) {
+            System.out.println("Ошибка! На 0 делить нельзя!");
         }
+        return x / y;
     };
 
     UnaryOperator<Integer> pow = x -> x * x;
