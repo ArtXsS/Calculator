@@ -2,6 +2,7 @@ package calculatir.src;
 import java.util.function.*;
 
 public class Calculator implements Supplier {
+    final int MIN_VALUE = 1;
     static Supplier<Calculator> instance = Calculator::new;
 
     Calculator() { };
@@ -19,7 +20,7 @@ public class Calculator implements Supplier {
     BinaryOperator<Integer> devide = (x, y) -> {
         if(y == 0) {
             System.out.println("Ошибка! На 0 делить нельзя!");
-            return 0;
+            return MIN_VALUE;
         }
         return x / y;
 
